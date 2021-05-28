@@ -1,0 +1,36 @@
+site_name: TeSLA Face Recognition Provider (TFR)
+site_url: https://tesla-ce.github.io/python-client/
+site_author: Xavier Baro
+
+nav:
+    - Home: index.md
+    - Options: options.md
+
+theme:
+  name: "material"
+  custom_dir: overrides
+
+markdown_extensions:
+  - admonition
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.insert(0, "src")
+            - print('INITIALIZED')
+          rendering:
+            show_source: true
+          selection:
+            docstring_style: restructured-text
+      watch:
+        - src/tfr
+extra:
+  version:
+    provider: mike
+

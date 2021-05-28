@@ -1,0 +1,17 @@
+{
+  "instrument": 1,
+  "acronym": "tfr",
+  "version": "0.0.1",
+  "url": "https://git.sunai.uoc.edu/tesla-ce/providers/tfr",
+  "image": "registry.sunai.uoc.edu:443/tesla-ce/providers/tfr:latest",
+  "name": "TeSLA Face Recognition",
+  "description": "Face Recognition instrument provider",
+  "has_service": false,
+  "service_port": null,
+  "options_schema": null,
+  "queue": "fr_tfr",
+  "allow_validation": true,
+  "alert_below": 0.3,
+  "warning_below": 0.6,
+  "inverted_polarity": false
+}
