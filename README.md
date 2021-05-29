@@ -1,7 +1,7 @@
-[![PyPi Version](https://img.shields.io/pypi/v/tesla-ce-client.svg)](https://pypi.python.org/pypi/tesla-ce-client/)
-[![codecov](https://codecov.io/gh/tesla-ce/python-client/branch/main/graph/badge.svg?token=PJJQMW981P)](https://codecov.io/gh/tesla-ce/python-client)
+[![PyPi Version](https://img.shields.io/pypi/v/tesla-ce-provider-fr-tfr.svg)](https://pypi.python.org/pypi/tesla-ce-provider-fr-tfr/)
+[![codecov](https://codecov.io/gh/tesla-ce/provider-fr-tfr/branch/main/graph/badge.svg?token=PJJQMW981P)](https://codecov.io/gh/tesla-ce/provider-fr-tfr)
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)  
-[![Quality gate](https://sonar.sunai.uoc.edu/api/project_badges/quality_gate?project=tesla-ce_python-client)](https://sonar.sunai.uoc.edu/dashboard?id=tesla-ce_python-client)
+[![Quality gate](https://sonar.sunai.uoc.edu/api/project_badges/quality_gate?project=tesla-ce_provider-fr-tfr)](https://sonar.sunai.uoc.edu/dashboard?id=tesla-ce_provider-fr-tfr)
 # TFR: TeSLA CE Face Recognition provider 
 
 | :warning: This repository is **under construction**. Final release of TeSLA Community Edition source code is expected by the **end of 2021** |
