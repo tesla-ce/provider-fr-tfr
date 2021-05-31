@@ -217,7 +217,7 @@ class TFRProvider(BaseProvider):
         # Check provided input
         sample_check = utils.check_sample_image(request, self.accepted_mimetypes)
         if not sample_check['valid']:
-            return result.VerificationResult(False, error_message=sample_check['msg'],
+            return result.VerificationResult(True, error_message=sample_check['msg'],
                                              message_code=sample_check['code'])
 
         # TODO: Check mimetype to use different approaches for video and image inputs
