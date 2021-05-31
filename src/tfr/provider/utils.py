@@ -74,7 +74,9 @@ def check_sample_image(sample, accepted_mimetypes=None):
     mimetype = None
     try:
         sample_mimetype = sample.data.split(',')[0].split(';')[0].split(':')[1]
-    except Exception:
+        if len(sample_mimetype.strip()) == 0:
+            sample_mimetype = None
+    except IndexError:
         sample_mimetype = None
     if sample.mime_type is not None:
         mimetype = sample.mime_type

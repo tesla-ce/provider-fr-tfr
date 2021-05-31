@@ -42,7 +42,7 @@ u2_test = [
 ]
 
 fast_test_env = os.getenv('TFR_FAST_TEST', None)
-fast_test = False
+fast_test = True
 if fast_test_env is not None:
     fast_test = fast_test_env in ['1', 1, True, 'true', 'True']
 
@@ -57,6 +57,7 @@ if fast_test:
 models = {}
 
 
+@pytest.mark.dependency()
 def test_progressive_enrolment(tfr_provider):
 
     tfr_provider.set_options({'min_enrol_samples': 3, 'target_enrol_samples': 6})
@@ -114,8 +115,9 @@ def test_batch_enrolment(tfr_provider):
         assert (1.0 - result.model['percentage']) < 0.0001
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_identity_verification_enrol(tfr_provider):
-
+    test_progressive_enrolment(tfr_provider)
     for user in users:
         if user['learner_id'] not in models:
             pytest.skip(PYTEST_MISSING_MODELS_MSG)
@@ -130,6 +132,7 @@ def test_identity_verification_enrol(tfr_provider):
         idx += 1
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_identity_verification(tfr_provider):
 
     for user in users:
@@ -148,6 +151,7 @@ def test_identity_verification(tfr_provider):
             idx += 1
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_identity_refutation(tfr_provider):
 
     for user in users:
@@ -169,6 +173,7 @@ def test_identity_refutation(tfr_provider):
             idx += 1
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_verify_multiple_people_with_user(tfr_provider):
     from tesla_ce_provider.message import Provider
 
@@ -186,6 +191,7 @@ def test_verify_multiple_people_with_user(tfr_provider):
     assert result.result > tfr_provider.info['alert_below']
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_verify_multiple_people_without_user(tfr_provider):
     from tesla_ce_provider.message import Provider
 
@@ -203,6 +209,7 @@ def test_verify_multiple_people_without_user(tfr_provider):
     assert result.result < tfr_provider.info['warning_below']
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_verify_no_face(tfr_provider):
     user = users[0]
     if user['learner_id'] not in models:
@@ -217,6 +224,7 @@ def test_verify_no_face(tfr_provider):
     assert result.message_code == 'PROVIDER_NO_FACE_DETECTED'
 
 
+@pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
 def test_verify_black_image(tfr_provider):
     user = users[0]
     if user['learner_id'] not in models:

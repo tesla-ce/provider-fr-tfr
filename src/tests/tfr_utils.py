@@ -30,7 +30,7 @@ def get_sample(sample_mimetype='__default__', data_mimetype='__default__', image
 
     sample_data = {
         "learner_id": learner_id,
-        "data" : "data:{};base64,{}".format(data_mimetype, image_data),
+        "data": "data:{};base64,{}".format(data_mimetype, image_data),
         "instruments":[1],
         "metadata": {
             "context": {},
@@ -39,7 +39,7 @@ def get_sample(sample_mimetype='__default__', data_mimetype='__default__', image
     }
 
     if data_mimetype is None:
-        sample_data['data'] = "data:base64,{}".format(image_data),
+        sample_data['data'] = "data:;base64,{}".format(image_data)
 
     if sample_mimetype is None:
         del sample_data['metadata']['mimetype']
