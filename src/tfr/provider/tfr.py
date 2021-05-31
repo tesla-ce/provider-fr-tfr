@@ -37,7 +37,7 @@ class TFRProvider(BaseProvider):
         self.accepted_mimetypes = self._video_mimetypes + self._image_mimetypes
         self.config = {
             'model': 'cnn',
-            'fast_validation': True,
+            'fast_validation': False,
             'number_of_times_to_upsample': 1,
             'min_enrol_samples': 10,
             'target_enrol_samples': 15,

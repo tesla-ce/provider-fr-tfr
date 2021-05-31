@@ -76,6 +76,7 @@ def test_progressive_enrolment(tfr_provider):
                 assert not result.can_analyse
             else:
                 assert result.can_analyse
+            assert result.percentage is not None
             if sample_id == 6:
                 assert (1.0 - result.percentage) < 0.0001
             else:
@@ -84,6 +85,7 @@ def test_progressive_enrolment(tfr_provider):
             assert len(model['samples']) == sample_id
             assert len(result.used_samples) == sample_id
 
+        assert model['percentage'] is not None
         assert (1.0 - model['percentage']) < 0.0001
         models[user['learner_id']] = model
 
