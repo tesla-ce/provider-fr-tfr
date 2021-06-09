@@ -25,7 +25,6 @@ RUN set -ex \
             expat-dev \
     && python3 -m venv /venv \
     && /venv/bin/pip install -U pip \
-
     # Install the package
     && LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "/venv/bin/pip install --no-cache-dir $TESLA_CE_PROVIDER_PACKAGE" \
     && runDeps="$( \
