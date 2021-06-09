@@ -4,10 +4,10 @@ FROM python:3.7-alpine
 ARG TESLA_CE_PROVIDER_VERSION
 
 # ADD wheel
-ADD dist/tesla-ce-provider-fr-tfr-${TESLA_CE_PROVIDER_VERSION}-py3-none-any.whl /tmp
+ADD dist/tesla_ce_provider_fr_tfr-${TESLA_CE_PROVIDER_VERSION}-py3-none-any.whl /tmp
 
 # Define the TeSLA CE package to install
-ARG TESLA_CE_PROVIDER_PACKAGE="/tmp/tesla-ce-provider-fr-tfr-$TESLA_CE_PROVIDER_VERSION-py3-none-any.whl"
+ARG TESLA_CE_PROVIDER_PACKAGE="/tmp/tesla_ce_provider_fr_tfr-$TESLA_CE_PROVIDER_VERSION-py3-none-any.whl"
 
 # Install build deps, then run `pip install`, then remove unneeded build deps all in a single step. Correct the path to your production requirements file, if needed.
 RUN set -ex \
@@ -42,7 +42,7 @@ RUN set -ex \
     && apk del .build-deps
 
 # Remove wheel
-RUN rm /tmp/tesla-ce-provider-fr-tfr-$TESLA_CE_PROVIDER_VERSION-py3-none-any.whl
+RUN rm /tmp/tesla-ce-provider_fr_tfr-$TESLA_CE_PROVIDER_VERSION-py3-none-any.whl
 
 # Install production dependencies
 RUN set -ex \
