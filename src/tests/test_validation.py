@@ -21,7 +21,7 @@ def test_missing_mimetype(tfr_provider):
 
     sample = get_sample(sample_mimetype=None, data_mimetype=None)
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -35,7 +35,7 @@ def test_different_mimetypes(tfr_provider):
 
     sample = get_sample(sample_mimetype='image/png')
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -49,7 +49,7 @@ def test_unsuported_mimetypes(tfr_provider):
 
     sample = get_sample(sample_mimetype='image/other', data_mimetype='image/other')
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -64,7 +64,7 @@ def test_mimetype_both(tfr_provider):
 
     sample = get_sample()
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -79,7 +79,7 @@ def test_mimetype_sample(tfr_provider):
 
     sample = get_sample(sample_mimetype=None)
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -94,7 +94,7 @@ def test_invalid_sample_datab64(tfr_provider):
 
     sample = get_sample(image_data='this is not a b64')
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -108,7 +108,7 @@ def test_invalid_sample_data(tfr_provider):
 
     sample = get_sample(image_data=base64.b64encode(b'this is not a b64').decode())
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -122,7 +122,7 @@ def test_black_image(tfr_provider):
 
     sample = get_sample(image='black_image')
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 
@@ -136,7 +136,7 @@ def test_multiple_faces_image(tfr_provider):
 
     sample = get_sample(image='multiple_faces')
     result_id = 1
-    result = tfr_provider.validate_sample(sample, result_id=result_id)
+    result = tfr_provider.validate_sample(sample, validation_id=result_id)
 
     check_validation_result(result)
 

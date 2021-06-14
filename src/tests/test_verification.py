@@ -247,7 +247,7 @@ def perform_batch_enrolment_with_validation(tfr_provider):
         samples = []
         for img in user['enrolment']:
             sample = get_sample(image=img, sample_id=sample_id, learner_id=user['learner_id'])
-            val_result = tfr_provider.validate_sample(sample, result_id=result_id)
+            val_result = tfr_provider.validate_sample(sample, validation_id=result_id)
             if val_result.status == 1:
                 validation = parse_validation_data(val_result.info)
                 sample = get_sample(image=img, sample_id=sample_id, learner_id=user['learner_id'],
@@ -283,7 +283,7 @@ def test_batch_enrolment_with_normal_validation_other(tfr_provider):
         samples = []
         for img in user['enrolment']:
             sample = get_sample(image=img, sample_id=sample_id, learner_id=user['learner_id'])
-            val_result = tfr_provider.validate_sample(sample, result_id=result_id)
+            val_result = tfr_provider.validate_sample(sample, validation_id=result_id)
             if val_result.status == 1:
                 new_val_info = val_result.info
                 new_val_info['provider']['id'] = 30
