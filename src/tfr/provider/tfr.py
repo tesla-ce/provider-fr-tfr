@@ -143,13 +143,13 @@ class TFRProvider(BaseProvider):
         return result.EnrolmentResult(tfr_model.to_json(), tfr_model.get_percentage(), tfr_model.can_analyse(),
                                       used_samples=tfr_model.get_used_samples())
 
-    def validate_sample(self, sample, result_id):
+    def validate_sample(self, sample, validation_id):
         """
             Validate an enrolment sample
             :param sample: Enrolment sample
             :type sample: tesla_ce_provider.models.base.Sample
-            :param result_id: Request result identification
-            :type result_id: int
+            :param validation_id: Request validation identification
+            :type validation_id: int
             :return: Validation result
             :rtype: tesla_ce_provider.ValidationResult
         """
