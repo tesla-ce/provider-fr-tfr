@@ -53,7 +53,8 @@ def get_sample(sample_mimetype='__default__', data_mimetype='__default__', image
 
 
 def get_request(request_mimetype='__default__', data_mimetype='__default__', image_data=None, image='valid_image',
-                learner_id='9cfd197a-3b42-4361-841a-a45ef435b0e6', course_id=1, activity_id=1, session_id=1):
+                learner_id='9cfd197a-3b42-4361-841a-a45ef435b0e6', course_id=1, activity_id=1, session_id=1,
+                filename=None, request_id=1, ):
     from tesla_ce_provider.models.base import Request
     if image_data is None:
         img = get_image(image)
@@ -74,28 +75,33 @@ def get_request(request_mimetype='__default__', data_mimetype='__default__', ima
         else:
             request_mimetype = data_mimetype
 
-    if data_mimetype is None:
-        request_data_data = "data:base64,{}".format(image_data)
-    else:
-        request_data_data = "data:{};base64,{}".format(data_mimetype, image_data)
-
-    request_obj = {
+    request_data = {
         "learner_id": learner_id,
-        "data": request_data_data,
-        "instruments": [1],
-        "metadata": {
-            "context": {},
-            "mimetype": request_mimetype
-        },
         "course_id": course_id,
         "activity_id": activity_id,
-        "session_id": session_id
+        "session_id": session_id,
+        "data": "data:{};base64,{}".format(data_mimetype, image_data),
+        "instruments": [1],
+        "metadata": {
+            "filename": filename,
+            "context": {},
+            "mimetype": request_mimetype
+        }
     }
 
-    if request_mimetype is None:
-        del request_obj['metadata']['mimetype']
+    if data_mimetype is None:
+        request_data['data'] = "data:;base64,{}".format(image_data)
 
-    return Request(request_obj)
+    if request_mimetype is None:
+        del request_data['metadata']['mimetype']
+
+    return Request({
+        "id": request_id,
+        "learner_id": learner_id,
+        "data": request_data,
+        "result": None,
+        "audit": {}
+    })
 
 
 def check_validation_result(result):
