@@ -75,22 +75,21 @@ def get_request(request_mimetype='__default__', data_mimetype='__default__', ima
             request_mimetype = data_mimetype
 
     if data_mimetype is None:
-        request_data = "data:base64,{}".format(image_data)
+        request_data_data = "data:base64,{}".format(image_data)
     else:
-        request_data = "data:{};base64,{}".format(data_mimetype, image_data)
+        request_data_data = "data:{};base64,{}".format(data_mimetype, image_data)
 
     request_obj = {
         "learner_id": learner_id,
-        "course_id": course_id,
-        "activity_id": activity_id,
-        "session_id": session_id,
-        "data": request_data,
+        "data": request_data_data,
         "instruments": [1],
         "metadata": {
-            "file": None,
             "context": {},
             "mimetype": request_mimetype
-        }
+        },
+        "course_id": course_id,
+        "activity_id": activity_id,
+        "session_id": session_id
     }
 
     if request_mimetype is None:
