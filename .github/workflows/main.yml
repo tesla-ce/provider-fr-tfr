@@ -98,6 +98,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: Fossa update license analysis
+        if: matrix.python-version == 3.9
+        continue-on-error: true
+        run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+          FOSSA_API_KEY=${{ secrets.FOSSA_API_KEY}} fossa analyze
   publish:    
     needs: build
     runs-on: ubuntu-latest

@@ -1,0 +1,8 @@
+analyze:
+  modules:
+    - name: tesla-ce/provider-fr-tfr
+      type: pip
+      target: github.com/tesla-ce/provider-fr-tfr
+      path:  src
+      options:
+        requirements: requirements.txt

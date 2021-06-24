@@ -1,6 +1,7 @@
 [![PyPi Version](https://img.shields.io/pypi/v/tesla-ce-provider-fr-tfr.svg)](https://pypi.python.org/pypi/tesla-ce-provider-fr-tfr/)
 [![codecov](https://codecov.io/gh/tesla-ce/provider-fr-tfr/branch/main/graph/badge.svg?token=PJJQMW981P)](https://codecov.io/gh/tesla-ce/provider-fr-tfr)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)  
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B26246%2Fgithub.com%2Ftesla-ce%2Fprovider-fr-tfr.svg?type=shield)](https://app.fossa.com/projects/custom%2B26246%2Fgithub.com%2Ftesla-ce%2Fprovider-fr-tfr?ref=badge_shield)
 [![Quality gate](https://sonar.sunai.uoc.edu/api/project_badges/quality_gate?project=tesla-ce_provider-fr-tfr)](https://sonar.sunai.uoc.edu/dashboard?id=tesla-ce_provider-fr-tfr)
 # TFR: TeSLA CE Face Recognition provider 
 
@@ -24,3 +25,5 @@ Credits: Include a section for credits in order to highlight and link to the aut
 
 ## License
 This project is licensed under [AGPL v3 licence](http://www.gnu.org/licenses/agpl-3.0).
+
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B26246%2Fgithub.com%2Ftesla-ce%2Fprovider-fr-tfr.svg?type=large)](https://app.fossa.com/projects/custom%2B26246%2Fgithub.com%2Ftesla-ce%2Fprovider-fr-tfr?ref=badge_large)
