@@ -1,2 +1,2 @@
-tesla-ce-provider
+tesla-ce-provider>0.0.3
 face_recognition
