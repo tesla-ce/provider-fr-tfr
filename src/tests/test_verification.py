@@ -139,16 +139,14 @@ def test_identity_verification(tfr_provider):
         if user['learner_id'] not in models:
             pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
-    idx = 1
     for user in users:
         for img in user['test']:
             request = get_request(image=img, learner_id=user['learner_id'])
-            result = tfr_provider.verify(request, models[user['learner_id']], idx)
+            result = tfr_provider.verify(request, models[user['learner_id']])
             check_verification_result(result)
             assert result.status == 1
             assert result.code == result.AlertCode.OK
             assert result.result > tfr_provider.info['alert_below']
-            idx += 1
 
 
 @pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
@@ -159,18 +157,16 @@ def test_identity_refutation(tfr_provider):
             pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
     user_idx = 0
-    idx = 1
     for user in users:
         ref_idx = (user_idx+1) % len(users_all)
         user_idx += 1
         for img in users_all[ref_idx]['test']:
             request = get_request(image=img, learner_id=user['learner_id'])
-            result = tfr_provider.verify(request, models[user['learner_id']], idx)
+            result = tfr_provider.verify(request, models[user['learner_id']])
             check_verification_result(result)
             assert result.status == 1
             assert result.code == result.AlertCode.OK
             assert result.result < tfr_provider.info['warning_below']
-            idx += 1
 
 
 @pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
@@ -182,8 +178,7 @@ def test_verify_multiple_people_with_user(tfr_provider):
         pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
     request = get_request(image='multiple_faces', learner_id=user['learner_id'])
-    idx = 1
-    result = tfr_provider.verify(request, models[user['learner_id']], idx)
+    result = tfr_provider.verify(request, models[user['learner_id']])
     check_verification_result(result)
     assert result.status == 1
     assert result.code == result.AlertCode.ALERT
@@ -200,8 +195,7 @@ def test_verify_multiple_people_without_user(tfr_provider):
         pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
     request = get_request(image='multiple_faces_2', learner_id=user['learner_id'])
-    idx = 1
-    result = tfr_provider.verify(request, models[user['learner_id']], idx)
+    result = tfr_provider.verify(request, models[user['learner_id']])
     check_verification_result(result)
     assert result.status == 1
     assert result.code == result.AlertCode.ALERT
@@ -216,8 +210,7 @@ def test_verify_no_face(tfr_provider):
         pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
     request = get_request(image='no_face', learner_id=user['learner_id'])
-    idx = 1
-    result = tfr_provider.verify(request, models[user['learner_id']], idx)
+    result = tfr_provider.verify(request, models[user['learner_id']])
     check_verification_result(result)
     assert result.status == 1
     assert result.code == result.AlertCode.WARNING
@@ -231,8 +224,7 @@ def test_verify_black_image(tfr_provider):
         pytest.skip(PYTEST_MISSING_MODELS_MSG)
 
     request = get_request(image='black_image', learner_id=user['learner_id'])
-    idx = 1
-    result = tfr_provider.verify(request, models[user['learner_id']], idx)
+    result = tfr_provider.verify(request, models[user['learner_id']])
     check_verification_result(result)
     assert result.status == 1
     assert result.code == result.AlertCode.WARNING
