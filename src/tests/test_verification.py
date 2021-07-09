@@ -121,15 +121,13 @@ def test_identity_verification_enrol(tfr_provider):
     for user in users:
         if user['learner_id'] not in models:
             pytest.skip(PYTEST_MISSING_MODELS_MSG)
-    idx = 1
     for user in users:
         request = get_request(image=user['enrolment'][0], learner_id=user['learner_id'])
-        result = tfr_provider.verify(request, models[user['learner_id']], idx)
+        result = tfr_provider.verify(request, models[user['learner_id']])
         check_verification_result(result)
         assert result.status == 1
         assert result.code == result.AlertCode.OK
         assert result.result > 0.9
-        idx += 1
 
 
 @pytest.mark.dependency(depends=["test_progressive_enrolment"], scope='module')
