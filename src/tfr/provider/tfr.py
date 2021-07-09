@@ -199,15 +199,13 @@ class TFRProvider(BaseProvider):
                                        contribution=1.0 / float(self.config['target_enrol_samples']),
                                        info=face.to_json())
 
-    def verify(self, request, model, result_id):
+    def verify(self, request, model):
         """
             Verify a learner request
             :param request: Verification request
             :type request: tesla_ce_provider.models.base.Request
             :param model: Provider model
             :type model: dict
-            :param result_id: Request result identification
-            :type result_id: int
             :return: Verification result
             :rtype: tesla_ce_provider.VerificationResult
         """
