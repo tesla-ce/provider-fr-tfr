@@ -59,7 +59,7 @@ ENV PROVIDER_VERSION=$TESLA_CE_PROVIDER_VERSION
 RUN addgroup -g 2000 -S celery && \
     adduser -u 1000 -S celery -G celery
 
-ADD check_health.sh /venv/bin/check_health.sh
+ADD docker/check_health.sh /venv/bin/check_health.sh
 RUN chmod +x /venv/bin/check_health.sh
 
 USER celery
