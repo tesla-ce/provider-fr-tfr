@@ -1,7 +1,7 @@
 {
   "instrument": 1,
   "acronym": "tfr",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "url": "https://github.com/tesla-ce/provider-fr-tfr",
   "image": "teslace/provider-fr-tfr:latest",
   "name": "TeSLA CE Face Recognition",
