@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"TeSLA CE Python Client","text":":warning: This repository is under construction. Final release of TeSLA Community Edition source code is expected by the end of 2021"},{"location":"options/","title":"Options","text":"<p>Options available for this provider</p>"}]}
