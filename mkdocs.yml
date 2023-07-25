@@ -20,16 +20,14 @@ plugins:
       default_handler: python
       handlers:
         python:
-          setup_commands:
-            - import sys
-            - sys.path.insert(0, "src")
-            - print('INITIALIZED')
-          rendering:
-            show_source: true
-          selection:
-            docstring_style: restructured-text
-      watch:
-        - src/tfr
+          paths: [src]
+          load_external_modules: true
+          allow_inspection: true
+          options:
+            rendering:
+              show_source: true
+            selection:
+              docstring_style: sphinx
 extra:
   version:
     provider: mike
