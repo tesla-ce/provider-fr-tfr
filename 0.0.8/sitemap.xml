@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://tesla-ce.github.io/python-client/0.0.8/</loc>
+         <lastmod>2023-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tesla-ce.github.io/python-client/0.0.8/options/</loc>
+         <lastmod>2023-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
